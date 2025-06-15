@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Photo Gallery</title>
+      {{ bootstrap.load_css() }}
+      <link rel="stylesheet" href="static\css\style.css">
+  </head>
+<body class="body">
+
+    <h1><strong> Shane's Random Picture Gallery</strong></h1>
+    <div class="container">
+        {% for item in images %}
+        <div class="card-body">
+            <a href = "{{ url_for('detail', image_id=item.id) }}"><h2 class="h2">{{ item.title }}</h2>
+            <img src="static/images/{{ item.id }}.jpg" width="250"class="image" alt="{{ item.title }}">
+            </a>
+        </div>
+        <hr id="line">
+        {% endfor %}
+    </div>
+</body>
+</html>
